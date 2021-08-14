@@ -34,13 +34,13 @@
 													<a href="javascript:void(0);">Browse Jobs</a>
 													<ul class="sub-menu">
 														<li>
-															<a href="joblisting.php">Job Listing</a>
+															<a href="{{ url('job_listing') }}">Job Listing</a>
 														</li>
 														<li class="current-menu-item">
-															<a href="jobsingle.php">Job Single</a>
+															<a href="{{ url('job_single') }}">Job Single</a>
 														</li>
 														<li>
-															<a href="jobproposal.php">Job Proposal</a>
+															<a href="{{ url('job_proposal') }}">Job Proposal</a>
 														</li>
 													</ul>
 												</li>

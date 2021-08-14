@@ -56,3 +56,12 @@ Route::get('/martial_status', function () {
 Route::get('/blood_group', function () {
     return view('Dashboard/dashboard-blood-group');
 });
+Route::get('/job_listing', function () {
+    return view('joblisting');
+});
+Route::get('/job_single', function () {
+    return view('jobsingle');
+});
+Route::get('/job_proposal', function () {
+    return view('jobproposal');
+});
