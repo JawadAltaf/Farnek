@@ -565,6 +565,8 @@ jQuery(document).on('ready', function() {
 						$("#user_designation").hide();
 						$("#employee_designation").show();
 						$(".outer_btn").show();
+						$(".salary_field").hide();
+						$(".price_per_hour").hide();
 		
 					}
 		
@@ -594,6 +596,8 @@ jQuery(document).on('ready', function() {
 						$("#user_designation").hide();
 						$("#employee_designation").hide();
 						$(".outer_btn").show();
+						$(".salary_field").hide();
+						$(".price_per_hour").show();
 					}
 		
 					if(optVal == "Company Users"){
