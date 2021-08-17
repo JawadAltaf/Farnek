@@ -141,10 +141,23 @@
 															<span>Users</span>
 														</a>
 														<ul class="sub-menu children">
-															<li><a href="{{ url('users_list') }}">List Users</a></li>
-															<li><a href="dashboard-insightsuser.html">List Admins</a></li>
+															{{-- <li><a href="{{ url('users_list') }}">List Users</a></li> --}}
+															<li><a href="{{ url('guard_list') }}">List Guard</a></li>
+															<li><a href="{{ url('employee_list') }}">List Employee</a></li>
+															<li><a href="{{ url('user_company_list') }}">List Company Users</a></li>
+															{{-- <li><a href="dashboard-insightsuser.html">List Admins</a></li>
 															<li><a href="dashboard-insightsuser.html">List Moderators</a></li>
-															<li><a href="dashboard-insightsuser.html">List Editors</a></li>
+															<li><a href="dashboard-insightsuser.html">List Editors</a></li> --}}
+														</ul>
+													</li>
+													<li class="menu-item-has-children page_item_has_children">
+														<a href="javascript:avoid(0);">
+															<span>Company</span>
+														</a>
+														<ul class="sub-menu children">
+															<li><a href="{{ url('company_list') }}">Company List</a></li>
+															<li><a href="{{ url('company_project_list') }}">Company Project</a></li>
+															{{-- <li><a href="dashboard-insightsuser.html">Company User</a></li> --}}
 														</ul>
 													</li>
 													<!-- <li>

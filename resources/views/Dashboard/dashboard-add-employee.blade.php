@@ -9,15 +9,12 @@
 					<div class="wt-haslayout wt-dbsectionspace">
 						<div class="wt-dashboardbox wt-dashboardtabsholder wt-accountsettingholder">
 							<div class="wt-dashboardboxtitle">
-								<h2>Add User</h2>
+								<h2>Add Employee</h2>
 							</div>
 							<div class="wt-dashboardtabs">
 								<ul class="wt-tabstitle nav navbar-nav">
-									<li class="nav-item" id="category_selection">
-										<a class="category_tab active" data-toggle="tab" href="#wt-category">Select Category</a>
-									</li>
 									<li class="nav-item" id="personal_details">
-										<a class="personal_tab" data-toggle="tab" href="#wt-skills">Personal Details</a>
+										<a class="personal_tab active" data-toggle="tab" href="#wt-skills">Personal Details</a>
 									</li>
 									<li class="nav-item" id="next_of_kin">
 										<a data-toggle="tab" href="#wt-nextkin">Next Of Kin</a>
@@ -43,81 +40,14 @@
 								</ul>
 							</div>
 							<div class="wt-tabscontent tab-content">
-								<div class="wt-educationholder tab-pane active fade show category_tab_active" id="wt-category">
-									<div class="wt-yourdetails">
-										<div class="wt-tabscontenttitle wt-addnew">
-											<h2>Choose Category Option</h2>
-										</div>
-										<form class="wt-formtheme wt-userform">
-											<fieldset>
-												<div class="form-group form-group-Full">
-													<label>Select Category</label>
-													<span class="wt-select">
-														<select id="categories">
-															<option value="">Select Category</option>
-															<option value="Employee">Employee</option>
-															<option value="Guard">Guard</option>
-															<option value="Company Users">Company Users</option>
-														</select>
-													</span>
-												</div>
-											</fieldset>
-										</form>
-									</div>
-								</div>
-								<div class="wt-personalskillshold tab-pane fade personal_tab_active" id="wt-skills">
+								<div class="wt-personalskillshold tab-pane active fade show personal_tab_active" id="wt-skills">
+                                    <form id="employeeForm">
 									<div class="wt-yourdetails wt-tabsinfo">
 										<div class="wt-tabscontenttitle">
 											<h2>User Detail</h2>
 										</div>
 										<div class="wt-formtheme wt-userform">
 											<fieldset>
-												<div class="form-group form-group-half" id="select_company">
-													<label>Select Company</label>
-													<span class="wt-select">
-														<select>
-															<option value="">Select Company</option>
-															<option value="abc">abc</option>
-															<option value="">def</option>
-															<option value="">ghi</option>
-														</select>
-													</span>
-												</div>
-												<div class="form-group form-group-half" id="select_project">
-													<label>Select Project</label>
-													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Project</option>
-															<option value="">abc</option>
-															<option value="">def</option>
-															<option value="">ghi</option>
-														</select>
-													</span>
-												</div>
-												<div class="form-group form-group-half" id="guard_designation">
-													<label>Guard Designation</label>
-													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Designation</option>
-															<option value="">Door Supervisior</option>
-															<option value="">Security Guard</option>
-															<option value="">CCTV Security</option>
-															<option value="">Event Security</option>
-														</select>
-													</span>
-												</div>
-												<div class="form-group form-group-half" id="user_designation">
-													<label>User Designation</label>
-													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Designation</option>
-															<option value="">Company Portal</option>
-															<option value="">Area Manager</option>
-															<option value="">Accounts Manager</option>
-															<option value="">Operation Manager</option>
-														</select>
-													</span>
-												</div>
 												<div class="form-group form-group-half" id="employee_designation">
 													<label>Employee Designation</label>
 													<span class="wt-select">
@@ -155,21 +85,26 @@
 													<label>Phone Number</label>
 													<input type="text" name="phone_number" class="form-control" placeholder="Phone Number" data-required="true" autocomplete="off">
 												</div>
-												<div class="form-group form-group-half price_per_hour">
-													<label>Price/Per Hour</label>
-													<input type="number" name="price_per_hour" class="form-control" placeholder="Price Per Hour" data-required="true" autocomplete="off">
-												</div>
-												<div class="form-group form-group-half salary_field">
-													<label>Salary</label>
-													<input type="number" name="salary" class="form-control" placeholder="Salary" data-required="true" autocomplete="off">
-												</div>
 												<div class="form-group form-group-half">
 													<label>Password</label>
-													<input type="number" name="password" class="form-control" placeholder="Password" data-required="true" autocomplete="off">
+													<input type="password" name="employee_password" id="employee_password" class="form-control employee_password " placeholder="Password" data-required="true" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required autocomplete="off">
+
+													<i class="fa fa-eye" id="employee_icon"></i>
+
+													<div id="employeeMessage">
+														<p id="employeeLetter" class="employeInvalid">A <b>lowercase</b> letter</p>
+														<p id="employeeCapital" class="employeInvalid">A <b>capital (uppercase)</b> letter</p>
+														<p id="employeeNumber" class="employeInvalid">A <b>number (123456)</b></p>
+														<p id="employeeLength" class="employeInvalid">Minimum <b>8 characters</b></p>
+													</div>
 												</div>
 												<div class="form-group form-group-half">
 													<label>Confirm Password</label>
-													<input type="number" name="confirm_password" class="form-control" placeholder="Confirm Password" data-required="true" autocomplete="off">
+													<input type="password" name="employee_confirm_password" id="employee_confirm_password" class="form-control employee_confirm_password" placeholder="Confirm Password" data-required="true" autocomplete="off">
+													<i class="fa fa-eye" id="employee_eye"></i>
+													<div>
+														<span id="checkEmployeePassword"></span>
+													</div>
 												</div>
 											</fieldset>
 										</div>
@@ -1128,6 +1063,7 @@
 						<span>Update all the latest changes made by you, by just clicking on “Save &amp; Continue” button.</span>
 						<button type="submit" class="wt-btn">Save &amp; Update</button>
 					</div>
+                </form>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
 					<div class="wt-haslayout wt-dbsectionspace wt-codescansidebar">
@@ -1161,4 +1097,92 @@
 		</section>
 		<!--Register Form End-->
 	</main>
+
+	<script>
+		// ==========================================================Employee password validation start 
+
+
+		var employeeInput = document.getElementById("employee_password");
+			var employeeLetter = document.getElementById("employeeLetter");
+			var employeeCapital = document.getElementById("employeeCapital");
+			var employeeNumber = document.getElementById("employeeNumber");
+			var employeeLength = document.getElementById("employeeLength");
+
+			// When the user clicks on the password field, show the message box
+			employeeInput.onfocus = function() {
+				document.getElementById("employeeMessage").style.display = "block";
+			}
+
+			// When the user clicks outside of the password field, hide the message box
+			employeeInput.onblur = function() {
+				document.getElementById("employeeMessage").style.display = "none";
+			}
+
+			// When the user starts to type something inside the password field
+			employeeInput.onkeyup = function() {
+				// Validate lowercase letters
+				var employeeLowerCaseLetters = /[a-z]/g;
+				if(employeeInput.value.match(employeeLowerCaseLetters)) {  
+					employeeLetter.classList.remove("employeInvalid");
+					employeeLetter.classList.add("valid");
+				} else {
+					employeeLetter.classList.remove("valid");
+					employeeLetter.classList.add("employeInvalid");
+				}
+				
+				// Validate capital letters
+				var employeeUpperCaseLetters = /[A-Z]/g;
+				if(employeeInput.value.match(employeeUpperCaseLetters)) {  
+					employeeCapital.classList.remove("employeInvalid");
+					employeeCapital.classList.add("valid");
+				} else {
+					employeeCapital.classList.remove("valid");
+					employeeCapital.classList.add("employeInvalid");
+				}
+			
+				// Validate numbers
+				var employeeNumbers = /[0-9]/g;
+				if(employeeInput.value.match(employeeNumbers)) {  
+					employeeNumber.classList.remove("employeInvalid");
+					employeeNumber.classList.add("valid");
+				} else {
+					employeeNumber.classList.remove("valid");
+					employeeNumber.classList.add("employeInvalid");
+				}
+				
+				// Validate length
+				if(employeeInput.value.length >= 8) {
+					employeeLength.classList.remove("employeInvalid");
+					employeeLength.classList.add("valid");
+				} else {
+					employeeLength.classList.remove("valid");
+					employeeLength.classList.add("employeInvalid");
+				}
+			}
+
+			function checkEmployeePassword()
+			{
+				var password = $('.employee_password').val();
+				var confirmPassword = $('.employee_confirm_password').val();
+				if(password != confirmPassword)
+				{
+					$("#checkEmployeePassword").html('Passwords does not match!');
+					$("#checkEmployeePassword").css("color","red");
+				}else{
+					$("#checkEmployeePassword").html('Passwords match.');
+					$("#checkEmployeePassword").css("color","green");
+				}
+			}
+
+			$('.employee_confirm_password').keyup(checkEmployeePassword);
+
+			$('#employee_icon').on('click', function(){
+				$(".employee_password").attr('type', 'text');
+			});
+
+			$('#employee_eye').on('click', function(){
+				$(".employee_confirm_password").attr('type', 'text');
+			});
+
+	</script>
 @endsection

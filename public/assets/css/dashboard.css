@@ -2881,36 +2881,93 @@ ul li{
 .bootstrap-tagsinput input{
 	height: auto !important;
 }
-#add_company{
-	display: none;
-}
-#company_project{
-	display: none;
-}
-#personal_details{
-	display: none;
-}
-#next_of_kin{
-	display: none;
-}
-#home_address{
-	display: none;
-}
-#document{
-	display: none;
-}
-#language{
-	display: none;
-}
-#transportation{
-	display: none;
-}
-#experience{
-	display: none;
-}
-#projects{
-	display: none;
-}
 .error{
 	color: red !important;
+	text-transform: initial !important;
+    font-size: 11px !important;
+}
+
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+	display:none;
+	color: #000;
+	padding: 0px;
+	margin-top: 0px;
+  }
+  
+  #message p {
+	padding: 5px 0px;
+	margin-bottom: 0px !important;
+	line-height: 0.8 !important;
+	font-size: 14px;
+  }
+#employeeMessage{
+	display:none;
+	color: #000;
+	padding: 0px;
+	margin-top: 0px;
+}
+#employeeMessage p {
+	padding: 5px 0px;
+	margin-bottom: 0px !important;
+	line-height: 0.8 !important;
+	font-size: 14px;
+}
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+	color: green;
+	display: none;
+  }
+  
+  .valid:before {
+	position: relative;
+	left: -35px;
+	content: "✔";
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+	color: red;
+  }
+.invalid:before {
+	position: relative;
+	left: -35px;
+	content: "✖";
+  }
+.employeInvalid{
+	color: red;
+}
+.employeInvalid:before{
+	position: relative;
+	left: -35px;
+	content: "✖";
+}
+#guard_icon{
+	position: absolute;
+    margin-left: -25px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+#employee_icon{
+	position: absolute;
+    margin-left: -25px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+#guard_eye{
+	position: absolute;
+    margin-left: -25px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+#employee_eye{
+	position: absolute;
+    margin-left: -25px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+.guard_confirm_password{
+	position: relative;
 }

@@ -9,15 +9,12 @@
 					<div class="wt-haslayout wt-dbsectionspace">
 						<div class="wt-dashboardbox wt-dashboardtabsholder wt-accountsettingholder">
 							<div class="wt-dashboardboxtitle">
-								<h2>Add User</h2>
+								<h2>Add Company User</h2>
 							</div>
 							<div class="wt-dashboardtabs">
 								<ul class="wt-tabstitle nav navbar-nav">
-									<li class="nav-item" id="category_selection">
-										<a class="category_tab active" data-toggle="tab" href="#wt-category">Select Category</a>
-									</li>
 									<li class="nav-item" id="personal_details">
-										<a class="personal_tab" data-toggle="tab" href="#wt-skills">Personal Details</a>
+										<a class="personal_tab active" data-toggle="tab" href="#wt-skills">Personal Details</a>
 									</li>
 									<li class="nav-item" id="next_of_kin">
 										<a data-toggle="tab" href="#wt-nextkin">Next Of Kin</a>
@@ -43,29 +40,8 @@
 								</ul>
 							</div>
 							<div class="wt-tabscontent tab-content">
-								<div class="wt-educationholder tab-pane active fade show category_tab_active" id="wt-category">
-									<div class="wt-yourdetails">
-										<div class="wt-tabscontenttitle wt-addnew">
-											<h2>Choose Category Option</h2>
-										</div>
-										<form class="wt-formtheme wt-userform">
-											<fieldset>
-												<div class="form-group form-group-Full">
-													<label>Select Category</label>
-													<span class="wt-select">
-														<select id="categories">
-															<option value="">Select Category</option>
-															<option value="Employee">Employee</option>
-															<option value="Guard">Guard</option>
-															<option value="Company Users">Company Users</option>
-														</select>
-													</span>
-												</div>
-											</fieldset>
-										</form>
-									</div>
-								</div>
-								<div class="wt-personalskillshold tab-pane fade personal_tab_active" id="wt-skills">
+								<div class="wt-personalskillshold tab-pane active fade show personal_tab_active" id="wt-skills">
+                                    <form id="companyUserForm">
 									<div class="wt-yourdetails wt-tabsinfo">
 										<div class="wt-tabscontenttitle">
 											<h2>User Detail</h2>
@@ -75,57 +51,34 @@
 												<div class="form-group form-group-half" id="select_company">
 													<label>Select Company</label>
 													<span class="wt-select">
-														<select>
+														<select name="user_company">
 															<option value="">Select Company</option>
 															<option value="abc">abc</option>
-															<option value="">def</option>
-															<option value="">ghi</option>
+															<option value="def">def</option>
+															<option value="ghi">ghi</option>
 														</select>
 													</span>
 												</div>
 												<div class="form-group form-group-half" id="select_project">
 													<label>Select Project</label>
 													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Project</option>
-															<option value="">abc</option>
-															<option value="">def</option>
-															<option value="">ghi</option>
-														</select>
-													</span>
-												</div>
-												<div class="form-group form-group-half" id="guard_designation">
-													<label>Guard Designation</label>
-													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Designation</option>
-															<option value="">Door Supervisior</option>
-															<option value="">Security Guard</option>
-															<option value="">CCTV Security</option>
-															<option value="">Event Security</option>
+														<select name="select_project">
+															<option value="">Select Project</option>
+															<option value="abc">abc</option>
+															<option value="def">def</option>
+															<option value="ghi">ghi</option>
 														</select>
 													</span>
 												</div>
 												<div class="form-group form-group-half" id="user_designation">
 													<label>User Designation</label>
 													<span class="wt-select">
-														<select>
-															<option value="" selected disabled>Select Designation</option>
-															<option value="">Company Portal</option>
-															<option value="">Area Manager</option>
-															<option value="">Accounts Manager</option>
-															<option value="">Operation Manager</option>
-														</select>
-													</span>
-												</div>
-												<div class="form-group form-group-half" id="employee_designation">
-													<label>Employee Designation</label>
-													<span class="wt-select">
-														<select name="employ_designation">
+														<select name="user_company_designation">
 															<option value="">Select Designation</option>
-															<option value="Administrator">Administrator</option>
-															<option value="Moderator">Moderator</option>
-															<option value="Controller">Controller</option>
+															<option value="Company Portal">Company Portal</option>
+															<option value="Area Manager">Area Manager</option>
+															<option value="Accounts Manager">Accounts Manager</option>
+															<option value="Operation Manager">Operation Manager</option>
 														</select>
 													</span>
 												</div>
@@ -153,23 +106,15 @@
 												</div>
 												<div class="form-group form-group-half">
 													<label>Phone Number</label>
-													<input type="text" name="phone_number" class="form-control" placeholder="Phone Number" data-required="true" autocomplete="off">
-												</div>
-												<div class="form-group form-group-half price_per_hour">
-													<label>Price/Per Hour</label>
-													<input type="number" name="price_per_hour" class="form-control" placeholder="Price Per Hour" data-required="true" autocomplete="off">
-												</div>
-												<div class="form-group form-group-half salary_field">
-													<label>Salary</label>
-													<input type="number" name="salary" class="form-control" placeholder="Salary" data-required="true" autocomplete="off">
+													<input type="text" name="company_number" class="form-control" placeholder="Phone Number" data-required="true" autocomplete="off">
 												</div>
 												<div class="form-group form-group-half">
 													<label>Password</label>
-													<input type="number" name="password" class="form-control" placeholder="Password" data-required="true" autocomplete="off">
+													<input type="number" name="user_password" class="form-control" placeholder="Password" data-required="true" autocomplete="off">
 												</div>
 												<div class="form-group form-group-half">
 													<label>Confirm Password</label>
-													<input type="number" name="confirm_password" class="form-control" placeholder="Confirm Password" data-required="true" autocomplete="off">
+													<input type="number" name="user_confirm_password" class="form-control" placeholder="Confirm Password" data-required="true" autocomplete="off">
 												</div>
 											</fieldset>
 										</div>
@@ -1128,6 +1073,7 @@
 						<span>Update all the latest changes made by you, by just clicking on “Save &amp; Continue” button.</span>
 						<button type="submit" class="wt-btn">Save &amp; Update</button>
 					</div>
+                </form>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
 					<div class="wt-haslayout wt-dbsectionspace wt-codescansidebar">

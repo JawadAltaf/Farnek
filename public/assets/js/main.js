@@ -511,7 +511,6 @@ jQuery(document).on('ready', function() {
 						$("#transportation").hide();
 						$("#experience").hide();
 						$("#projects").hide();
-		
 						$(".outer_btn").hide();
 		
 					}
@@ -770,14 +769,293 @@ jQuery(document).on('ready', function() {
 						}
 					}
 				});
-		
+				
+				$("#guardForm").validate({
+					rules: {
+						select_guard:{
+							required: true
+						},
+						price_per_hour:{
+							required: true
+						},
+						employ_designation: {
+							required: true
+						},
+						select_gender: {
+							required: true
+						},
+						first_name: {
+							required: true,
+						},
+						last_name: {
+							required: true
+						},
+						email: {
+							required: true
+						},
+						phone_number: {
+							required: true
+						}
+						// guard_password:{
+						// 	required: true
+						// },
+						// guard_confirm_password:{
+						// 	required: true
+						// }
+					},
+					messages: {
+						select_guard:{
+							required: "The guard designation field is required"
+						},
+						price_per_hour:{
+							required: "The price per hour field is required"
+						},
+						employ_designation: {
+							required: "The employee designation field is required"
+						},
+						select_gender: {
+							required: "The gender field is required"
+						},
+						first_name: {
+							required: "The first name field is required"
+						},
+						last_name: {
+							required: "The last name field is required"
+						},
+						email: {
+							required: "The email field is required"
+						},
+						phone_number: {
+							required: "The phone number field is required"
+						}
+						// guard_password:{
+						// 	required: "The password field is required"
+						// },
+						// guard_confirm_password:{
+						// 	required: "The confirm password field is required"
+						// }
+					}
+				});
+
+
+				$("#employeeForm").validate({
+					rules: {
+						employ_designation: {
+							required: true
+						},
+						select_gender: {
+							required: true
+						},
+						first_name: {
+							required: true,
+						},
+						last_name: {
+							required: true
+						},
+						email: {
+							required: true
+						},
+						phone_number: {
+							required: true
+						}
+					},
+					messages: {
+						employ_designation: {
+							required: "The employee designation field is required"
+						},
+						select_gender: {
+							required: "The gender field is required"
+						},
+						first_name: {
+							required: "The first name field is required"
+						},
+						last_name: {
+							required: "The last name field is required"
+						},
+						email: {
+							required: "The email field is required"
+						},
+						phone_number: {
+							required: "The phone number field is required"
+						}
+					}
+				});
+
+
+				$("#companyUserForm").validate({
+					rules: {
+						user_company_designation: {
+							required: true
+						},
+						select_project:{
+							required: true
+						},
+						user_company:{
+							required: true
+						},
+						select_gender: {
+							required: true
+						},
+						first_name: {
+							required: true,
+						},
+						last_name: {
+							required: true
+						},
+						email: {
+							required: true
+						},
+						company_number: {
+							required: true
+						},
+						user_password:{
+							required: true
+						},
+						user_confirm_password:{
+							required: true
+						}
+					},
+					messages: {
+						user_company_designation: {
+							required: "The user designation field is required"
+						},
+						select_project:{
+							required: "The project field is required"
+						},
+						user_company:{
+							required: "The user comapny field is required"
+						},
+						select_gender: {
+							required: "The gender field is required"
+						},
+						first_name: {
+							required: "The first name field is required"
+						},
+						last_name: {
+							required: "The last name field is required"
+						},
+						email: {
+							required: "The email field is required"
+						},
+						company_number: {
+							required: "The phone number field is required"
+						},
+						user_password:{
+							required: "The password field is required"
+						},
+						user_confirm_password:{
+							required: "The confirm password field is required"
+						}
+					}
+				});
+
+
 				$("input[name='price']").on('input', function() {
 					 $(this).val($(this).val().replace(/[^0-9]/g, ''));
-				   });
+				});
+
+				$("input[name='phone_number']").on('input', function() {
+					$(this).val($(this).val().replace(/[^0-9]/g, ''));
+			   });
+
+			   $("input[name='company_number']").on('input', function(){
+					$(this).val($(this).val().replace(/[^0-9]/g, ''));
+			   });
+
+			   $("input[name='price_per_hour']").on('input', function(){
+					$(this).val($(this).val().replace(/[^0-9]/g, ''));
+		  		});
+
+				$("input[name='company_number']").on('input', function(){
+					$(this).val($(this).val().replace(/[^0-9]/g, ''));
+		  		});
 			});
-		
+
+			var myInput = document.getElementById("guard_password");
+			var letter = document.getElementById("letter");
+			var capital = document.getElementById("capital");
+			var number = document.getElementById("number");
+			var length = document.getElementById("length");
+
+			// When the user clicks on the password field, show the message box
+			myInput.onfocus = function() {
+				document.getElementById("message").style.display = "block";
+			}
+
+			// When the user clicks outside of the password field, hide the message box
+			myInput.onblur = function() {
+				document.getElementById("message").style.display = "none";
+			}
+
+			// When the user starts to type something inside the password field
+			myInput.onkeyup = function() {
+				// Validate lowercase letters
+				var lowerCaseLetters = /[a-z]/g;
+				if(myInput.value.match(lowerCaseLetters)) {  
+				letter.classList.remove("invalid");
+				letter.classList.add("valid");
+				} else {
+				letter.classList.remove("valid");
+				letter.classList.add("invalid");
+				}
+				
+				// Validate capital letters
+				var upperCaseLetters = /[A-Z]/g;
+				if(myInput.value.match(upperCaseLetters)) {  
+				capital.classList.remove("invalid");
+				capital.classList.add("valid");
+				} else {
+				capital.classList.remove("valid");
+				capital.classList.add("invalid");
+				}
+			
+				// Validate numbers
+				var numbers = /[0-9]/g;
+				if(myInput.value.match(numbers)) {  
+				number.classList.remove("invalid");
+				number.classList.add("valid");
+				} else {
+				number.classList.remove("valid");
+				number.classList.add("invalid");
+				}
+				
+				// Validate length
+				if(myInput.value.length >= 8) {
+				length.classList.remove("invalid");
+				length.classList.add("valid");
+				} else {
+				length.classList.remove("valid");
+				length.classList.add("invalid");
+				}
+			}
 
 
+			// checking password match validation 
+
+			function checkPasswordMatch()
+			{
+				var password = $('.guard_password').val();
+				var confirmPassword = $('.guard_confirm_password').val();
+				if(password != confirmPassword)
+				{
+					$("#checkPasswordMatch").html('Passwords does not match!');
+					$("#checkPasswordMatch").css("color","red");
+				}else{
+					$("#checkPasswordMatch").html('Passwords match.');
+					$("#checkPasswordMatch").css("color","green");
+				}
+			}
+
+			$('.guard_confirm_password').keyup(checkPasswordMatch);
+
+			
+			$('#guard_icon').on('click', function(){
+				$("#guard_password").attr('type', 'text');
+			});
+
+			$('#guard_eye').on('click', function(){
+				$(".guard_confirm_password").attr('type', 'text');
+			});
 
 });
 	

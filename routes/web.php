@@ -65,3 +65,35 @@ Route::get('/job_single', function () {
 Route::get('/job_proposal', function () {
     return view('jobproposal');
 });
+
+
+Route::get('/add_company', function () {
+    return view('Dashboard/dashboard-add-company');
+});
+Route::get('/company_list', function () {
+    return view('Dashboard/dashboard-company-list');
+});
+Route::get('/add_company_project', function () {
+    return view('Dashboard/dashboard-add-company-project');
+});
+Route::get('/company_project_list', function () {
+    return view('Dashboard/dashboard-company-project-list');
+});
+Route::get('/guard_list', function () {
+    return view('Dashboard/dashboard-guard-list');
+});
+Route::get('/add_guard', function () {
+    return view('Dashboard/dashboard-add-guard');
+});
+Route::get('/employee_list', function () {
+    return view('Dashboard/dashboard-employee-list');
+});
+Route::get('/add_employee', function () {
+    return view('Dashboard/dashboard-add-employee');
+});
+Route::get('/user_company_list', function () {
+    return view('Dashboard/dashboard-companies-list');
+});
+Route::get('/add_user_company', function () {
+    return view('Dashboard/dashboard-add-company-user');
+});
